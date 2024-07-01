@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label>Enter the string:</label>
+      <input type="text" id="str" /> <br />
+      <input type="button" onClick="rever()" value="Order" />
+      <p>
+        The Result is : <br />
+        <span id="r"></span>
+      </p>
+    </form>
+
+    <script>
+      const rev = (a) => {
+        inital = a.split("").sort().join("");
+
+        return inital;
+      };
+
+      function rever() {
+        const inp = document.getElementById("str").value;
+        a = rev(inp);
+        document.getElementById("r").innerHTML = a;
+      }
+    </script>
+  </body>
+</html>

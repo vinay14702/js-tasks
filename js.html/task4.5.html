@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      span {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th><label>Name:</label></th>
+        <td><input id="inp1" type="text" /></td>
+        <td><span id="error1" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <th><label>Email:</label></th>
+        <td><input id="inp2" type="text" /></td>
+        <td>
+          <p><span id="error2"></span></p>
+        </td>
+      </tr>
+      <tr>
+        <th><label>Website:</label></th>
+        <td><input id="inp3" type="text" /></td>
+        <td>
+          <p><span id="error3"></span></p>
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="inp4">Message:</label></th>
+        <td><textarea id="inp4" rows="4"></textarea></td>
+        <td>
+          <p><span id="error4" class="error-message"></span></p>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><input id="inp" type="button" value="submit" /></td>
+        <td>
+          <p><span id="erroe"></span></p>
+        </td>
+      </tr>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <script>
+      const alerts = () => {
+        if (document.getElementById("inp1").value === "") {
+          $("#inp1").css("border-color", "red");
+          $("#error1").text("This field is required");
+        } else {
+          $("#inp1").css("border-color", "black");
+          $("#error1").text("");
+        }
+        if (
+          document.getElementById("inp2").value === "" ||
+          !document.getElementById("inp2").value.includes("@")
+        ) {
+          $("#inp2").css("border-color", "red");
+          $("#error2").text("A valid email address is required");
+        } else {
+          $("#inp2").css("border-color", "black");
+          $("#error2").text("");
+        }
+        if (document.getElementById("inp3").value === "") {
+          $("#inp3").css("border-color", "red");
+          $("#error3").text("A valid url address is required");
+        } else {
+          $("#inp3").css("border-color", "black");
+          $("#error3").text("");
+        }
+
+        var message = document.getElementById("inp4").value;
+
+        if (message === "") {
+          $("#inp4").css("border-color", "red");
+          $("#error4").text("This field is required");
+          isValid = false;
+        } else {
+          $("#inp4").css("border-color", "black");
+          $("#error4").text("");
+        }
+      };
+      $("#inp").click(function () {
+        alerts();
+      });
+    </script>
+  </body>
+</html>

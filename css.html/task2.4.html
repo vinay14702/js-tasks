@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        border: 2px solid black;
+        width: 65%;
+        margin: auto;
+      }
+
+      .box {
+        height: 75px;
+        width: 75px;
+        margin: 10px 0px;
+      }
+      .box.a {
+        background-color: rgb(16, 218, 16);
+      }
+      .box.b {
+        background-color: rgb(43, 149, 225);
+      }
+      .box.c {
+        background-color: red;
+      }
+      .box.d {
+        background-color: violet;
+      }
+
+      .intro {
+        margin: 34px;
+      }
+      .box:hover {
+        background-color: rgb(255, 132, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="box a"></div>
+        <div class="box b"></div>
+        <div class="box c"></div>
+        <div class="box d"></div>
+      </div>
+      <div class="intro">
+        <h1>Hoverable side nav buttons</h1>
+        <h4>hover on the buttons in the left side navigation to open them</h4>
+      </div>
+    </div>
+  </body>
+</html>

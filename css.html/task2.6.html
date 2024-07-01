@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    div {
+      display: flex;
+      justify-content: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    div {
+      border-radius: 5px;
+      background-color: white;
+      padding-top: 75px;
+    }
+    .j {
+      float: right;
+    }
+    button {
+      background-color: red;
+      color: white;
+      border: none;
+      margin: 4px 12px;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #ff6347;
+      color: white;
+    }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+  <body>
+    <img src="vinnu.jpg" alt="img" width="150" height="150" />
+    <div>
+      <form action="/action_page.php">
+        <label for="uname">Username</label>
+        <input
+          type="text"
+          id="uname"
+          name="uname"
+          placeholder="Enter Username"
+        />
+
+        <label for="pass">Password</label>
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          placeholder="Enter Password"
+        />
+
+        <input type="submit" value="Login" />
+        <label for="remember_me">
+          <input type="checkbox" id="remember_me" name="remember_me" /> Remember
+          me </label
+        ><br /><br />
+        <button type="button">Cancel</button>
+        <a href="#" class="j">Forgot password?</a>
+      </form>
+    </div>
+  </body>
+</html>

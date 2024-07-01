@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        background-color: pink;
+        padding: 2.5rem;
+      }
+      .box h1 {
+        text-align: center;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 90%;
+      }
+      span {
+        color: red;
+      }
+      button {
+        background-color: red;
+        color: white;
+        border-radius: 20px;
+      }
+      td {
+        padding: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Registration form</h1>
+      <table>
+        <tr>
+          <th><label> First Name:</label></th>
+          <td><input id="inp1" type="text" /></td>
+          <td>
+            <p><span id="error1" class="error-message"></span></p>
+          </td>
+        </tr>
+        <tr>
+          <th><label> Last Name:</label></th>
+          <td><input id="inp2" type="text" /></td>
+          <td><span id="error2" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label> Email:</label></th>
+          <td><input id="inp3" type="text" /></td>
+          <td><span id="error3" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label> Password:</label></th>
+          <td><input id="inp4" type="password" /></td>
+          <td><span id="error4" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label> R-enter password:</label></th>
+          <td><input id="inp5" type="password" /></td>
+          <td><span id="error5" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label> Gender</label></th>
+          <td>
+            <input type="radio" name="g" /> <label>Male</label><br />
+            <input type="radio" name="g" />
+            <label>Female</label>
+          </td>
+          <td><span id="error6" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label>Age:</label></th>
+          <td><input id="inp7" type="number" /></td>
+          <td><span id="error7" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label>Phone number:</label></th>
+          <td><input id="inp8" type="number" /></td>
+          <td><span id="error8" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label for="inp4">Address:</label></th>
+          <td><textarea id="inp9" rows="4"></textarea></td>
+          <td>
+            <p><span id="error9" class="error-message"></span></p>
+          </td>
+        </tr>
+        <tr>
+          <th><label> State:</label></th>
+          <td><input id="inp10" type="text" /></td>
+          <td><span id="error10" class="error-message"></span></td>
+        </tr>
+        <tr>
+          <th><label> country:</label></th>
+          <td>
+            <select>
+              <option>choose your country</option>
+              <option>India</option>
+              <option>Japan</option>
+              <option>Bangladesh</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Languages Known</th>
+          <td>
+            <input type="checkbox" />
+            <label>English</label>
+            <input type="checkbox" />
+            <label>Hindi</label>
+            <input type="checkbox" />
+            <label>Telugu</label>
+            <input type="checkbox" />
+            <label>Marathi</label>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colspan="
+            3"
+          >
+            <input type="checkbox" />
+            <label>Here by I declare all the given details are true</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <p style="text-align: end">
+              Log in to <a href="https://ethnus.com/">Ethunus</a> Website
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center">
+            <button onclick="check()">REGISTER</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+
+    <script>
+      const check = () => {
+        let fname = document.getElementById("inp1").value;
+        let lname = document.getElementById("inp2").value;
+        let emails = document.getElementById("inp3").value;
+        let ps = document.getElementById("inp4").value;
+        let Rps = document.getElementById("inp5").value;
+        let age = document.getElementById("inp7").value;
+        let pn = document.getElementById("inp8").value;
+        let add = document.getElementById("inp9").value;
+        let states = document.getElementById("inp10").value;
+
+        if (fname === "" || fname.length > 10) {
+          $("#error1").text("Poor");
+        } else {
+          $("#error1").text("");
+        }
+        if (lname === "" || lname.length > 10) {
+          $("#error2").text("Poor");
+        } else {
+          $("#error2").text("");
+        }
+        if (emails === "" || !emails.includes("@", "$")) {
+          $("#error3").text("Poor");
+        } else {
+          $("#error3").text("");
+        }
+        if (
+          ps === "" ||
+          ps.length < 10 ||
+          document.getElementById("inp4").value.includes("@$")
+        ) {
+          $("#error4").text("Poor");
+        } else {
+          $("#error4").text("Strong");
+          $("#error4").css("color", "green");
+        }
+        if (Rps === "") {
+          $("#error5").text("poor");
+        } else if (Rps != ps) {
+          $("#error5").text("Mismatch");
+        } else {
+          $("#error5").text("");
+        }
+        if (age === "" || age < 0 || age > 100) {
+          $("#error7").text("Poor");
+        } else {
+          $("#error7").text("");
+        }
+        if (pn === "" || pn.length > 10 || pn.length < 0) {
+          $("#error8").text("Poor");
+        } else {
+          $("#error8").text("");
+        }
+        if (add === "" || add.length < 30) {
+          $("#error9").text("Poor");
+        } else {
+          $("#error9").text("");
+        }
+        if (states === "") {
+          $("#error10").text("Poor");
+        } else {
+          $("#error10").text("");
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        border: 2px solid blue;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <table>
+        <tr>
+          <td>1st number:</td>
+          <td><input type="text" id="fn" /></td>
+        </tr>
+        <tr>
+          <td>2st number:</td>
+          <td><input type="text" id="sn" /></td>
+        </tr>
+      </table>
+      <input type="button" onclick="mul()" value="multiply" /><input
+        onclick="div()"
+        type="button"
+        value="divide"
+      />
+      <p>
+        The Result is:<br />
+        <span id="res"></span>
+      </p>
+    </div>
+
+    <script>
+      function mul() {
+        var f = document.getElementById("fn").value;
+        var s = document.getElementById("sn").value;
+        let q = f * s;
+        document.getElementById("res").innerHTML = q;
+      }
+      function div() {
+        var f = document.getElementById("fn").value;
+        var s = document.getElementById("sn").value;
+        let q = f / s;
+        document.getElementById("res").innerHTML = q;
+      }
+    </script>
+  </body>
+</html>

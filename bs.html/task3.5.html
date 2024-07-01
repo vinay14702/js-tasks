@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task5</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      form {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #e3e0e0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="text"],
+      input[type="password"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input[type="submit"],
+      input[type="reset"],
+      input[type="checkbox"] {
+        background-color: #007bff;
+        color: #f4f0f0;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover,
+      input[type="reset"]:hover,
+      input[type="checkbox"]:hover {
+        background-color: #0056b3;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="RegForm" onsubmit="return validateForm()">
+      <table>
+        <tr>
+          <td><label for="firstname">First Name:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              placeholder="Enter your first name"
+            /><span id="firstname-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="lastname">Last Name:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              placeholder="Enter your last name"
+            /><span id="lastname-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="email">E-mail Address:</label></td>
+          <td>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+            /><span id="email-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone Number:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+            /><span id="phone-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="address">Address:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter your address"
+            /><span id="address-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="city">City:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="Enter your city"
+            /><span id="city-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="state">State:</label></td>
+          <td style="width: 100%">
+            <select id="state" name="state">
+              <option value="">Select state</option>
+              <option value="AP">AP</option>
+              <option value="TS">TS</option>
+              <option value="MH">MH</option></select
+            ><span id="state-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="zip">Zip:</label></td>
+          <td style="width: 100%">
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              placeholder="Enter your zip code"
+            /><span id="zip-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Do you have hosting?</label></td>
+          <td>
+            <input
+              type="radio"
+              id="hosting_yes"
+              name="hosting"
+              value="yes"
+            /><label for="hosting_yes">Yes</label>
+            <input
+              type="radio"
+              id="hosting_no"
+              name="hosting"
+              value="no"
+            /><label for="hosting_no">No</label>
+            <span id="hosting-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="comment">Hobbies:</label></td>
+          <td><textarea id="comment" name="comment"></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="agree" name="agree" /></td>
+          <td>
+            <label for="agree">I agree to the above information</label
+            ><span id="agree-error" class="error-message"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="submit" value="Send" name="Submit" /></td>
+          <td><input type="reset" value="Reset" name="Reset" /></td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      function validateForm() {
+        const firstName = document.getElementById("firstname").value;
+        const lastName = document.getElementById("lastname").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const address = document.getElementById("address").value;
+        const city = document.getElementById("city").value;
+        const state = document.getElementById("state").value;
+        const zip = document.getElementById("zip").value;
+        const hosting = document.querySelector('input[name="hosting"]:checked');
+        const agree = document.getElementById("agree").checked;
+
+        const firstNameError = document.getElementById("firstname-error");
+        const lastNameError = document.getElementById("lastname-error");
+        const emailError = document.getElementById("email-error");
+        const phoneError = document.getElementById("phone-error");
+        const addressError = document.getElementById("address-error");
+        const cityError = document.getElementById("city-error");
+        const stateError = document.getElementById("state-error");
+        const zipError = document.getElementById("zip-error");
+        const hostingError = document.getElementById("hosting-error");
+        const agreeError = document.getElementById("agree-error");
+
+        firstNameError.textContent = "";
+        lastNameError.textContent = "";
+        emailError.textContent = "";
+        phoneError.textContent = "";
+        addressError.textContent = "";
+        cityError.textContent = "";
+        stateError.textContent = "";
+        zipError.textContent = "";
+        hostingError.textContent = "";
+        agreeError.textContent = "";
+
+        let isValid = true;
+
+        if (firstName === "") {
+          firstNameError.textContent = "Please enter your first name properly.";
+          isValid = false;
+        }
+
+        if (lastName === "") {
+          lastNameError.textContent = "Please enter your last name properly.";
+          isValid = false;
+        }
+
+        if (email === "") {
+          emailError.textContent = "Please enter a valid email address.";
+          isValid = false;
+        }
+
+        if (phone === "") {
+          phoneError.textContent =
+            "Please enter a valid 10-digit phone number.";
+          isValid = false;
+        }
+
+        if (address === "") {
+          addressError.textContent = "Please enter your address.";
+          isValid = false;
+        }
+
+        if (city === "") {
+          cityError.textContent = "Please enter your city.";
+          isValid = false;
+        }
+
+        if (state === "") {
+          stateError.textContent = "Please select your state.";
+          isValid = false;
+        }
+
+        if (zip === "") {
+          zipError.textContent = "Please enter a valid 5-digit zip code.";
+          isValid = false;
+        }
+
+        if (!hosting) {
+          hostingError.textContent = "Please select an option for hosting.";
+          isValid = false;
+        }
+
+        if (!agree) {
+          agreeError.textContent = "Please agree to the above information.";
+          isValid = false;
+        }
+
+        return isValid;
+      }
+    </script>
+  </body>
+</html>
